@@ -25,7 +25,7 @@ public class Build3Controller : MonoBehaviour
     private void Update()
     {
         timeGame += Time.deltaTime;
-        finishText.text = "Благодарим Вас за полное прозиводство <color=magenta>ресурса</color> за <color=magenta>" + timeGame + "</color> секунд, необходимого для выживания";
+        finishText.text = "Благодарим Вас за полное производство <color=magenta>ресурса</color> за <color=magenta>" + timeGame + "</color> секунд, необходимого для выживания";
         ProduceRes3();
     }
 
@@ -67,7 +67,6 @@ public class Build3Controller : MonoBehaviour
 
         if (resource3.fillAmount == 1f)
         {
-            OffVisibleText();
             finishText.gameObject.SetActive(true);
             Time.timeScale = 0f;
         }
