@@ -36,7 +36,7 @@ public class Build1Controller : MonoBehaviour
     {
         if (resource1.fillAmount != 1f)
         {
-            resource1.fillAmount += Mathf.Lerp(0f, 1f, Time.deltaTime / 10);
+            resource1.fillAmount += Mathf.Lerp(0f, 1f, Time.deltaTime / 15);
             textVisible = false;
         }
 

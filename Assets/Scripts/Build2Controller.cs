@@ -38,28 +38,28 @@ public class Build2Controller : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             if(playerRes.checkerRes1 != CollectState.NONE)
-                resource1.fillAmount += Mathf.Lerp(0f, 1f, Time.deltaTime/10);
+                resource1.fillAmount += Mathf.Lerp(0f, 1f, Time.deltaTime/5);
 
             if(playerRes.checkerRes2 != CollectState.FULL)
-                resource2.fillAmount = Mathf.Lerp(resource2.fillAmount, 0f, Time.deltaTime/5);
+                resource2.fillAmount = Mathf.Lerp(resource2.fillAmount, 0f, Time.deltaTime/2);
         }
     }
 
     private void ProduceRes2()
     {
-        resource2.fillAmount += Mathf.Lerp(0f, resource1.fillAmount, Time.deltaTime / 10);
+        resource2.fillAmount += Mathf.Lerp(0f, resource1.fillAmount, Time.deltaTime / 5);
 
         //for full resource of build2 to stop dropping resource
         if (resource2.fillAmount != 1f)
         {
-            resource1.fillAmount = Mathf.Lerp(resource1.fillAmount, 0f, Time.deltaTime / 10);
+            resource1.fillAmount = Mathf.Lerp(resource1.fillAmount, 0f, Time.deltaTime / 2);
             textVisible = false;
         }
 
         if(resource1.fillAmount > 0.05f)
             text1Visible = false;
 
-        if (resource2.fillAmount == 0f)
+        if (resource2.fillAmount < 0.05f)
             build2Checker = false;
         else
             build2Checker = true;

@@ -25,7 +25,7 @@ public class Build3Controller : MonoBehaviour
     private void Update()
     {
         timeGame += Time.deltaTime;
-        finishText.text = "Благодарим Вас за полное производство <color=magenta>ресурса</color> за <color=magenta>" + timeGame + "</color> секунд, необходимого для выживания";
+        finishText.text = $"Благодарим Вас за полное производство <color=magenta>ресурса</color> за <color=magenta>{timeGame}</color> секунд, необходимого для выживания";
         ProduceRes3();
     }
 
@@ -35,20 +35,20 @@ public class Build3Controller : MonoBehaviour
         {
             if(playerRes.checkerRes1 != CollectState.NONE && playerRes.checkerRes2 != CollectState.NONE)
             {
-                resource1.fillAmount += Mathf.Lerp(0f, 1f, Time.deltaTime / 10);
-                resource2.fillAmount += Mathf.Lerp(0f, 1f, Time.deltaTime / 10);
+                resource1.fillAmount += Mathf.Lerp(0f, 1f, Time.deltaTime / 5);
+                resource2.fillAmount += Mathf.Lerp(0f, 1f, Time.deltaTime / 5);
             }
         }
     }
 
     private void ProduceRes3()
     {
-        resource3.fillAmount += Mathf.Lerp(0f, resource1.fillAmount + resource2.fillAmount, Time.deltaTime / 45);
+        resource3.fillAmount += Mathf.Lerp(0f, resource1.fillAmount + resource2.fillAmount, Time.deltaTime / 60);
 
         if (resource3.fillAmount != 1f)
         {
-            resource1.fillAmount = Mathf.Lerp(resource1.fillAmount, 0f, Time.deltaTime / 10);
-            resource2.fillAmount = Mathf.Lerp(resource2.fillAmount, 0f, Time.deltaTime / 10);
+            resource1.fillAmount = Mathf.Lerp(resource1.fillAmount, 0f, Time.deltaTime / 5);
+            resource2.fillAmount = Mathf.Lerp(resource2.fillAmount, 0f, Time.deltaTime / 5);
         }
 
         if(resource1.fillAmount > 0.05f && resource2.fillAmount > 0.05f)
