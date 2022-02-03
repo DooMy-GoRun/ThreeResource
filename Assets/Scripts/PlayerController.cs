@@ -95,8 +95,8 @@ public class PlayerController : MonoBehaviour
         {
             if(checkerRes1 != CollectState.NONE && checkerRes2 != CollectState.NONE)
             {
-                playerResource1.fillAmount = Mathf.Lerp(playerResource1.fillAmount, 0f, Time.deltaTime / 2);
-                playerResource2.fillAmount = Mathf.Lerp(playerResource2.fillAmount, 0f, Time.deltaTime / 2);
+                playerResource1.fillAmount = Mathf.Lerp(playerResource1.fillAmount, 0f, Time.deltaTime);
+                playerResource2.fillAmount = Mathf.Lerp(playerResource2.fillAmount, 0f, Time.deltaTime);
             }
         }
     }
